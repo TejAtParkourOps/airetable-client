@@ -1,5 +1,5 @@
 {
-  "name": "airetable-client",
+  "name": "@parkour-ops/airetable-client",
   "version": "1.0.0",
   "description": "Client-side API for the Airetable system.",
   "publishConfig": {
