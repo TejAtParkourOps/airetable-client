@@ -2,6 +2,9 @@
   "name": "airetable-client",
   "version": "1.0.0",
   "description": "Client-side API for the Airetable system.",
+  "publishConfig": {
+    "access": "restricted"
+  },
   "files": [
     "./dist/"
   ],
@@ -12,8 +15,17 @@
     "test": "npm run build && mocha -r dotenv/config -r ts-node/register --timeout 10000 ./test/**/*.ts",
     "format": "prettier --write ."
   },
-  "author": "Tej Birring",
-  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Tej Birring",
+      "email": "tej@parkourops.com"
+    }
+  ],
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ParkourOps/airetable-client"
+  },
   "dependencies": {
     "@parkour-ops/airetable-contract": "^0.0.20",
     "socket.io-client": "^4.6.2"
