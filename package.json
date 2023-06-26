@@ -11,7 +11,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist/ && tsc --emitDeclarationOnly && esbuild ./src/index.ts --bundle --platform=node --packages=external --outdir=dist",
+    "tsc": "tsc",
+    "build": "rm -rf ./dist/ && tsc --emitDeclarationOnly && esbuild ./src/index.ts --bundle --platform=node --target=esnext --packages=external --outdir=dist",
     "test": "npm run build && mocha -r dotenv/config -r ts-node/register --timeout 10000 ./test/**/*.ts",
     "format": "prettier --write ."
   },
