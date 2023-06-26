@@ -4,9 +4,9 @@ import {
   ClientSideResponseReceiptCallback,
 } from "@parkour-ops/airetable-contract";
 import errors from "./client-side-socket-errors";
+import { AuthToken } from "./common";
 
 export type EventMessageHandler<TEventMessage> = (msg: TEventMessage) => void;
-export type AuthToken = string | (() => string);
 
 interface Options {
   authToken: AuthToken;
@@ -88,7 +88,9 @@ export class ClientSideSocket {
       // generate request args, schema: [ authToken (if any), data, callback ]
       const args = [
         // auth token:
-        this.#options.authToken,
+        typeof this.#options.authToken === "string"
+          ? this.#options.authToken
+          : await this.#options.authToken(),
         // data:
         data ?? null,
         // callback:
